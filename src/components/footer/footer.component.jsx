@@ -5,11 +5,24 @@ import HomeIcon from "@material-ui/icons/Home";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserMd, faFlask, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUserMd, faFlask } from "@fortawesome/free-solid-svg-icons";
 
-import { BottomNavigationAction, BottomNavigation } from "@material-ui/core";
+import {
+  BottomNavigationAction,
+  BottomNavigation,
+  makeStyles,
+} from "@material-ui/core";
+
+const useStyles = makeStyles({
+  stickToBottom: {
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+  },
+});
 
 const Footer = () => {
+  const classes = useStyles();
   const history = useHistory();
   const [current, setCurrent] = useState("");
   return (
@@ -19,7 +32,7 @@ const Footer = () => {
         setCurrent(newPath);
         history.push(`/${newPath}`);
       }}
-      showLabels
+      className = {classes.stickToBottom}
     >
       <BottomNavigationAction label="Inicio" value="" icon={<HomeIcon />} />
       <BottomNavigationAction
