@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
+import Footer from "./components/footer/footer.component";
+import Home from "./views/home/home.view";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            {/* probablemente aqui estaria bueno tener otro componente para el "tutorialito"
+              que puso LC en los mockups, con un if si es la primera vez que se loggea o algo  */}
+            <Home></Home>
+          </Route>
+          <Route path="/labs"></Route>
+          <Route path="/shop"></Route>
+          <Route path="/cart"></Route>
+          <Route path="/chat"></Route>
+        </Switch>
+        <Footer></Footer>
+      </BrowserRouter>
     </div>
   );
 }
