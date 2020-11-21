@@ -45,11 +45,6 @@ jobs:
         platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
         push: true
         tags: ghcr.io/omicto/farmapp:latest
-    - name: Install SSH key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.SSH_KEY }}
-        known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: Deploy
       run: ./deploy_to_aws.sh
       env:
