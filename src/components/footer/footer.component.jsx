@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { faUserMd, faFlask } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,14 +17,11 @@ const useStyles = makeStyles({
 const Footer = () => {
   const classes = useStyles();
   const [path, setPath] = useState("/");
-
   const history = useHistory();
-  useEffect(() => {
-    history.push(path);
-  }, [path]);
 
   const handleNavigationChange = (e, newPath) => {
     setPath(newPath);
+    history.push(newPath);
   };
 
   return (
