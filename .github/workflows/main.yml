@@ -37,16 +37,17 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.CR_PAT }}
-    - name: Create docker image
-      uses: docker/build-push-action@v2
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v1
       with:
-        context: .
-        file: ./Dockerfile
-        platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
-        push: true
-        tags: ghcr.io/omicto/farmapp:latest
+        registry: ghcr.io
+        username: "omicto"
+        password: ${{ secrets.CR_PAT }}
+        repository: omicto/farmapp
+        tags: latest
     - name: Deploy
-      run: ./deploy_to_aws.sh
+      run: sh ./deploy_to_aws.sh
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
