@@ -2,7 +2,20 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer/footer.component";
 import Home from "./views/home/home.view";
-import ItemView from "./views/item/item.view";
+// import ItemView from "./views/item/item.view";
+
+// // TODO Delete
+// const item = {
+//   images: [
+//     { imgUrl: "https://via.placeholder.com/149" },
+//     { imgUrl: "https://via.placeholder.com/150" },
+//     { imgUrl: "https://via.placeholder.com/151" },
+//   ],
+//   name : "IBUPROFENO 400 MG",
+//   brand : "Algidol",
+//   unitPrice : 25.00,
+//   description: "Caja con 10 cápsulas"
+// }
 
 function App() {
   return (
@@ -16,8 +29,10 @@ function App() {
           </Route>
           <Route path="/labs"> </Route>
           <Route path="/shop"></Route>
-          <Route path="/cart"></Route>
-          <Route path="/chat"><ItemView></ItemView></Route>
+          <Route path="/cart">
+          {/* <ItemView item={item}></ItemView> */}
+          </Route>
+          <Route path="/chat"></Route>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
