@@ -51,7 +51,7 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-        SSH_KEY_PATH: ${{ github.workspace }}/../asus-pubkey.pem
+        SSH_KEY_PATH: ${{ github.workspace }}/ssh_key/asus-pubkey.pem
         CR_PAT: ${{ secrets.CR_PAT }}
         REPO_OWNER: ${{ github.repository_owner }}
       
