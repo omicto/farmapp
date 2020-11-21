@@ -14,7 +14,7 @@ function App() {
               que puso LC en los mockups, con un if si es la primera vez que se loggea o algo  */}
             <Home></Home>
           </Route>
-          <Route path="/labs"><ItemView></ItemView> </Route>
+          <Route path="/labs"> </Route>
           <Route path="/shop"></Route>
           <Route path="/cart"></Route>
           <Route path="/chat"></Route>
