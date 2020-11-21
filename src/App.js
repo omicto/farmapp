@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer/footer.component";
 import Home from "./views/home/home.view";
-// import ItemView from "./views/item/item.view";
+import ItemView from "./views/item/item.view";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/labs"> </Route>
           <Route path="/shop"></Route>
           <Route path="/cart"></Route>
-          <Route path="/chat"></Route>
+          <Route path="/chat"><ItemView></ItemView></Route>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
