@@ -47,7 +47,7 @@ jobs:
         repository: omicto/farmapp
         tags: latest
     - name: Deploy
-      run: ./deploy_to_aws.sh
+      run: sh ./deploy_to_aws.sh
       env:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
