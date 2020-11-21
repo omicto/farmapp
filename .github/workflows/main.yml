@@ -40,12 +40,12 @@ jobs:
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v1
-        with:
-          registry: ghcr.io
-          username: "omicto"
-          password: ${{ secrets.CR_PAT }}
-          repository: omicto/farmapp
-          tags: latest
+      with:
+        registry: ghcr.io
+        username: "omicto"
+        password: ${{ secrets.CR_PAT }}
+        repository: omicto/farmapp
+        tags: latest
     - name: Deploy
       run: ./deploy_to_aws.sh
       env:
