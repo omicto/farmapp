@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Widget, addResponseMessage } from 'react-chat-widget';
+import { Widget, addResponseMessage, isWidgetOpened, toggleWidget } from 'react-chat-widget';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer/footer.component";
 import Home from "./views/home/home.view";
 import ItemView from "./views/item/item.view";
 import 'fontsource-roboto';
+
 
 import 'react-chat-widget/lib/styles.css';
 
@@ -14,12 +15,15 @@ function App() {
   useEffect(() => {
     addResponseMessage('Welcome to this awesome chat!');
   }, []);
-
+  
   const handleNewUserMessage = (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
   };
 
+  const handleFooterChange = () => {
+    if (isWidgetOpened()) toggleWidget();
+  }
 
   return (
     <div className="App">
@@ -35,13 +39,14 @@ function App() {
           <Route path="/cart"></Route>
         </Switch>
         <Widget
+          handleToggle
           title={"¿Necesitas ayuda?"}
           subtitle={""}
           handleNewUserMessage={handleNewUserMessage}
-
+          
         />
-        <Footer />
-      </BrowserRouter>
+        <Footer onChange={handleFooterChange}/>
+        </BrowserRouter>
     </div>
   );
 }
