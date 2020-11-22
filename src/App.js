@@ -15,25 +15,32 @@ function App() {
     addResponseMessage('Welcome to this awesome chat!');
   }, []);
 
-  
+  const handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`);
+    // Now send the message throught the backend API
+  };
+
+
   return (
     <div className="App">
-      <Widget
-        title={"¿Necesitas ayuda?"}
-        subtitle={""}
-      />
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
             {/* probablemente aqui estaria bueno tener otro componente para el "tutorialito"
               que puso LC en los mockups, con un if si es la primera vez que se loggea o algo  */}
-            <Home></Home>
+            <Home/>
           </Route>
-          <Route path="/labs"> </Route>
+          <Route path="/labs"></Route>
           <Route path="/shop"></Route>
           <Route path="/cart"></Route>
         </Switch>
-        <Footer></Footer>
+        <Widget
+          title={"¿Necesitas ayuda?"}
+          subtitle={""}
+          handleNewUserMessage={handleNewUserMessage}
+
+        />
+        <Footer />
       </BrowserRouter>
     </div>
   );
