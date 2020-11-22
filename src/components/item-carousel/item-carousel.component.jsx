@@ -19,25 +19,27 @@ const ItemCarousel = ({ items }) => {
   };
 
   return (
-    <>
-      <div
-        id="carouselExampleFade"
-        className="carousel slide carousel-fade"
-        data-ride="carousel"
-      >
-        <CarouselIndicators
-          active={currentItem}
-          length={items.length}
-          slideTo={setCurrentItem}
-        ></CarouselIndicators>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={items[currentItem].imgUrl} className="d-block w-100" />
-          </div>
+    <div
+      id="carouselExampleFade"
+      className="carousel slide carousel-fade"
+      data-ride="carousel"
+    >
+      <CarouselIndicators
+        active={currentItem}
+        length={items.length}
+        slideTo={setCurrentItem}
+      ></CarouselIndicators>
+      <div className="carousel-inner">
+        <div className="carousel-item active">
+          <img
+            src={items[currentItem].imgUrl}
+            className="d-block w-100"
+            alt="img"
+          />
         </div>
-        <CarouselControl onNext={next} onPrev={prev} />
       </div>
-    </>
+      <CarouselControl onNext={next} onPrev={prev} />
+    </div>
   );
 };
 

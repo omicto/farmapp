@@ -1,6 +1,5 @@
 import React from "react";
 import ShelfContainer from "./shelf-container.component";
-import {ReactComponent as Bottle} from "./bottle.svg";
 import ShelfItem from "./shelf-item.component";
 
 const Shelf = ({ items }) => {
