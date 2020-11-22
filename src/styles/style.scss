@@ -1,0 +1,97 @@
+@import './animations-mixins.scss';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    transition: all ease-in-out 0.2s;
+}
+
+
+
+.spacer-sm {
+    height: 3vh;
+}
+
+.spacer-lg {
+    height: 11vh;
+}
+
+.spacer {
+    height: 6vh;
+}
+
+.spacer-mini {
+    height: 1.5vh;
+}
+
+.page {
+    height: 93vh;
+}
+
+@media screen and (max-width: 800px) {
+    .rcw-launcher {
+        bottom: 7%;
+        background: linear-gradient(180deg, #00897C 0%, #0098AE 100%);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .rcw-messages-container {
+        background: #E5E5E5;
+    }
+
+    .rcw-widget-container {
+        position: fixed;
+        z-index: 0;
+        height: 100%;
+    }
+
+    .rcw-conversation-container {
+        height: 93%;
+        @include animated;
+        @include animateFaster;
+        @include slideInUp;
+        //@include slideOutDown;
+    }
+
+    .rcw-conversation-container .rcw-title {
+        padding: 10px 0 15px;
+    }
+
+    .rcw-conversation-container .rcw-close-button {
+        background: transparent;
+        top: 30px;
+
+    }
+
+    .rcw-conversation-container .rcw-header {
+        background: linear-gradient(180deg, #00897C 0%, #0098AE 100%);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 15px 0 15px;
+    }
+
+    .rcw-client .rcw-message-text {
+        background: rgba(250, 252, 253, 0.46);
+        backdrop-filter: blur(33px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        border-radius: 15px;
+    }
+
+    .rcw-response .rcw-message-text {
+        background: #FFFFFF;
+        backdrop-filter: blur(33px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        border-radius: 15px;
+    }
+}
+
+.rcw-send {
+    img {
+        filter: brightness(0) saturate(100%);
+    }
+}

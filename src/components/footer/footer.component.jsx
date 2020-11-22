@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { faUserMd, faFlask } from "@fortawesome/free-solid-svg-icons";
+import { useHistory, useLocation } from "react-router-dom";
+import { faFlask } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from "@material-ui/core/styles";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
@@ -14,27 +14,28 @@ const useStyles = makeStyles({
   },
 });
 
-const Footer = () => {
+const Footer = ({onChange}) => {
   const classes = useStyles();
-  const [path, setPath] = useState("/");
+  const location = useLocation();
+  const [path, setPath] = useState(location.pathname);
   const history = useHistory();
 
   const handleNavigationChange = (e, newPath) => {
-    setPath(newPath);
     history.push(newPath);
+    onChange();
+    setPath(newPath);
   };
 
   return (
     <BottomNavigation
       value={path}
       onChange={handleNavigationChange}
-      className={classes.root}
+      className={classes.root}      
     >
       <BottomNavigationAction icon={<Home />} value="/" />
       <BottomNavigationAction icon={<FontAwesomeIcon icon={faFlask} />} value="/labs"/>
       <BottomNavigationAction icon={<Storefront />} value="/shop" />
       <BottomNavigationAction icon={<ShoppingCart />} value="/cart" />
-      <BottomNavigationAction icon={<FontAwesomeIcon icon={faUserMd} />} value="/chat" />
     </BottomNavigation>
   );
 };
