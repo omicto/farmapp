@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import ItemCarousel from "../../components/item-carousel/item-carousel.component";
 import QuantitySelect from "../../components/quantity-select/quantity-select.component";
 //  import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import {
-  CardActions,
-  CardContent,
-  Card,
-  Typography,
-} from "@material-ui/core";
+import { CardActions, CardContent, Card, Typography } from "@material-ui/core";
+import { useParams } from "react-router-dom";
+import { getItemWithId } from "../../services/item.service";
 
 const addToCart = (item, qty) => {
   console.log(qty);
@@ -15,7 +12,9 @@ const addToCart = (item, qty) => {
 };
 
 const asMoney = (money) => money.toFixed(2);
-const ItemView = ({ item }) => {
+const ItemView = () => {
+  const { id } = useParams();
+  const item = getItemWithId(id);
   const [itemQty, setItemQty] = useState(1);
 
   const { images, name, description, brand, unitPrice } = item;
