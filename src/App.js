@@ -18,6 +18,7 @@ import "fontsource-roboto";
 import "react-chat-widget/lib/styles.css";
 
 import "./styles/style.scss";
+import Laboratories from "./views/labs/labs.view";
 function App() {
   const items = getItems();
   useEffect(() => {
@@ -48,7 +49,9 @@ function App() {
               que puso LC en los mockups, con un if si es la primera vez que se loggea o algo  */}
             <Home />
           </Route>
-          <Route path="/labs"> </Route>
+          <Route path="/labs">
+            <Laboratories />
+          </Route>
           <Route exact path="/shop">
             <Shop items={items}></Shop>
           </Route>
