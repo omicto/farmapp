@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { faUserMd, faFlask } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,12 +16,13 @@ const useStyles = makeStyles({
 
 const Footer = () => {
   const classes = useStyles();
-  const [path, setPath] = useState("/");
+  const location = useLocation();
+  const [path, setPath] = useState(location.pathname);
   const history = useHistory();
 
   const handleNavigationChange = (e, newPath) => {
-    setPath(newPath);
     history.push(newPath);
+    setPath(newPath);
   };
 
   return (
@@ -34,7 +35,6 @@ const Footer = () => {
       <BottomNavigationAction icon={<FontAwesomeIcon icon={faFlask} />} value="/labs"/>
       <BottomNavigationAction icon={<Storefront />} value="/shop" />
       <BottomNavigationAction icon={<ShoppingCart />} value="/cart" />
-      <BottomNavigationAction icon={<FontAwesomeIcon icon={faUserMd} />} value="/chat" />
     </BottomNavigation>
   );
 };
