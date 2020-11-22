@@ -4,9 +4,11 @@ import { ReactComponent as Bottle } from "./bottle.svg";
 
 const ShelfItem = ({ item }) => {
   return (
-    <Link to={`/shop/${item.id}`}>
-      <Bottle />
-    </Link>
+    <div>
+      <Link to={`/shop/${item.id}`}>
+        <Bottle />
+      </Link>
+    </div>
   );
 };
 

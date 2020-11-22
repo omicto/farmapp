@@ -4,9 +4,29 @@ import ShelfItem from "./shelf-item.component";
 
 const Shelf = ({ items }) => {
   return (
-    <ShelfContainer>
-      {items.map(item => <ShelfItem key={item.id} item={item} />)}
-    </ShelfContainer>
+    <div>
+      <h2 className="mt-3">Farmacias FarmApp</h2>
+      <ShelfContainer>
+        {items.map((item) => (
+          <ShelfItem key={item.id} item={item} />
+        ))}
+      </ShelfContainer>
+      <ShelfContainer>
+        {items.map((item) => (
+          <ShelfItem key={item.id} item={item} />
+        ))}
+      </ShelfContainer>
+      <ShelfContainer>
+        {items.map((item) => (
+          <ShelfItem key={item.id} item={item} />
+        ))}
+      </ShelfContainer>
+      <ShelfContainer>
+        {items.map((item) => (
+          <ShelfItem key={item.id} item={item} />
+        ))}
+      </ShelfContainer>
+    </div>
   );
 };
 

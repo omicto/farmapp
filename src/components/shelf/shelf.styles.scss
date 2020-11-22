@@ -1,6 +1,8 @@
 .shelf-container {
-    min-height: 75px;
+    min-height: 150px;
     margin: 0.5rem 0;
     background-repeat: no-repeat;
     background-image: url(./shelf.svg);
+    background-position: bottom;
+    padding: 0 3.7rem!important;
 }
