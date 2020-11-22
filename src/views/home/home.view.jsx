@@ -1,7 +1,7 @@
 import React from "react";
 
 const Home = ({children}) => (
-    <div className="page home">
+    <div className="home">
         {children}
     </div>
 )
