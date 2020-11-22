@@ -1,7 +1,9 @@
 import React from "react";
 
-const Home = () => (
-    <div className="home">dfgdkfgldkfglfdkgldf;kgdf;lgkdfl;gk</div>
+const Home = ({children}) => (
+    <div className="page home">
+        {children}
+    </div>
 )
 
 export default Home;
