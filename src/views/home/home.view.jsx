@@ -1,8 +1,8 @@
 import React from "react";
 
-const Home = ({children}) => (
+const Home = () => (
     <div className="home">
-        {children}
+        
     </div>
 )
 

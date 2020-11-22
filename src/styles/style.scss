@@ -46,7 +46,11 @@ html, body{
     .rcw-widget-container {
         position: fixed;
         z-index: 0;
+        height: 0%;
+    }
+    .opened {
         height: 100%;
+        z-index: 9999;
     }
 
     .rcw-conversation-container {
@@ -56,6 +60,7 @@ html, body{
         @include slideInUp;
         //@include slideOutDown;
     }
+    
 
     .rcw-conversation-container .rcw-title {
         padding: 10px 0 15px;
