@@ -31,7 +31,6 @@ html, body{
 }
 
 
-
 @media screen and (max-width: 800px) {
     .rcw-launcher {
         bottom: 7%;
@@ -54,7 +53,7 @@ html, body{
     }
 
     .rcw-conversation-container {
-        height: calc(93%);
+        
         @include animated;
         @include animateFaster;
         @include slideInUp;
@@ -101,28 +100,45 @@ html, body{
     }
 }
 
-@media screen and (max-height: 600px) {
-    .rcw-launcher {
-        bottom: 7%;
-        background: linear-gradient(180deg, #00897C 0%, #0098AE 100%);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-
-    .rcw-messages-container {
-        background: #E5E5E5;
-    }
-
-    .rcw-widget-container {
-        position: fixed;
-        z-index: 0;
-        height: 100%;
-    }
+@media (display-mode: standalone) and (max-height: 830px) {
 
     .rcw-conversation-container {
-        height: calc(89%);
-        @include animated;
-        @include animateFaster;
-        @include slideInUp;
-        //@include slideOutDown;
+        height: calc(92%);
+    }
+}
+
+@media screen and (max-height: 812px) {
+
+    .rcw-conversation-container {
+        height: calc(93%);
+    }
+}
+
+
+@media screen and (max-height: 800px) {
+
+    .rcw-conversation-container {
+        height: calc(92%);
+    }
+}
+
+@media screen and (max-height: 600px) {
+
+    .rcw-conversation-container {
+        height: calc(87%);
+    }
+}
+
+@media screen and (max-height: 570px) {
+
+    .rcw-conversation-container {
+        height: calc(90%);
+    }
+}
+
+@media screen and (max-height: 600px) {
+
+    .rcw-conversation-container {
+        height: calc(87%);
     }
 }
