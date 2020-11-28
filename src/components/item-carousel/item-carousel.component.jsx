@@ -21,7 +21,7 @@ const ItemCarousel = ({ items }) => {
   return (
     <div
       id="carouselExampleFade"
-      className="carousel slide carousel-fade"
+      className="carousel"
       data-ride="carousel"
     >
       <CarouselIndicators

@@ -1,9 +1,8 @@
 const items = [
   {
     images: [
-      { imgUrl: "https://via.placeholder.com/149" },
-      { imgUrl: "https://via.placeholder.com/150" },
-      { imgUrl: "https://via.placeholder.com/151" },
+      { imgUrl: "/img/algidol-400mg-1.png" },
+      { imgUrl: "/img/algidol-400mg-2.png" },
     ],
     name: "IBUPROFENO 400 MG",
     brand: "Algidol",
