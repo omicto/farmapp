@@ -6,7 +6,7 @@ const greetings = [
 ];
 
 const responses = {
-    'Me duele un poco la garganta, en que me recomientas tomar': {
+    'Me duele un poco la garganta, en que me recomiendas tomar': {
         response: '😟 lamento escuchar eso, puedo recomentadte un jarabe para la tos y que acudas a ru medico si no hay mejora!',
         link: {
             title: 'Jarabe para la tos',

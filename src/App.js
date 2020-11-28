@@ -9,6 +9,8 @@ import "./App.css";
 import Footer from "./components/footer/footer.component";
 import Home from "./views/home/home.view";
 import Shop from "./views/shop/shop.view";
+import Laboratories from "./views/labs/labs.view";
+import Cart from './views/cart/cart.view';
 import { getItems } from "./services/item.service";
 import { getResponse } from './mocks/bot-help.mock';
 // TODO Delete
@@ -18,6 +20,9 @@ import {launchOpenContainerListener, closeLauncher} from './script/rcw-container
 import "react-chat-widget/lib/styles.css";
 
 import "./styles/style.scss";
+
+import { AppProvider } from "./components/context/app-context.component";
+
 function App() {
   const items = getItems();
   useEffect(() => {
@@ -38,30 +43,36 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Widget
-          handleToggle
-          title={"¿Necesitas ayuda?"}
-          subtitle={""}
-          handleNewUserMessage={handleNewUserMessage}
-        />
-        <Switch>
-          <Route exact path="/">
-            {/* probablemente aqui estaria bueno tener otro componente para el "tutorialito"
+      <AppProvider>
+        <BrowserRouter>
+          <Widget
+            handleToggle
+            title={"¿Necesitas ayuda?"}
+            subtitle={""}
+            handleNewUserMessage={handleNewUserMessage}
+          />
+          <Switch>
+            <Route exact path="/">
+              {/* probablemente aqui estaria bueno tener otro componente para el "tutorialito"
               que puso LC en los mockups, con un if si es la primera vez que se loggea o algo  */}
-            <Home />
-          </Route>
-          <Route path="/labs"> </Route>
-          <Route exact path="/shop">
-            <Shop items={items}></Shop>
-          </Route>
-          <Route path="/shop/:id">
-            <ItemView />
-          </Route>
-          <Route path="/cart"></Route>
-        </Switch>
-        <Footer onChange={handleFooterChange} />
-      </BrowserRouter>
+              <Home />
+            </Route>
+            <Route path="/labs">
+              <Laboratories />
+            </Route>
+            <Route exact path="/shop">
+              <Shop items={items}></Shop>
+            </Route>
+            <Route path="/shop/:id">
+              <ItemView />
+            </Route>
+            <Route path="/cart">
+              <Cart/>
+              </Route>
+          </Switch>
+          <Footer onChange={handleFooterChange} />
+        </BrowserRouter>
+      </AppProvider>
     </div>
   );
 }
