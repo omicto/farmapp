@@ -5,7 +5,7 @@ const initialState = {
   cart: [],
 };
 
-const persistedState = JSON.parse(sessionStorage.getItem("farmapp"));
+const persistedState = JSON.parse(localStorage.getItem("farmapp"));
 
 const finalInitialState = { ...initialState, ...persistedState };
 
@@ -25,7 +25,7 @@ export const AppProvider = (props) => {
   const [state, dispatch] = useReducer(appReducer, finalInitialState);
 
   useEffect(() => {
-    sessionStorage.setItem("farmapp", JSON.stringify(state));
+    localStorage.setItem("farmapp", JSON.stringify(state));
     console.log(state);
   }, [state]);
 

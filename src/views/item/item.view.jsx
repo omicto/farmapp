@@ -3,16 +3,18 @@ import ItemCarousel from "../../components/item-carousel/item-carousel.component
 import QuantitySelect from "../../components/quantity-select/quantity-select.component";
 //  import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { CardActions, CardContent, Card, Typography } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getItemWithId } from "../../services/item.service";
 import { AppContext } from "../../components/context/app-context.component";
 
 const asMoney = (money) => money.toFixed(2);
 const ItemView = () => {
+  const history = useHistory();
   const { dispatch } = useContext(AppContext);
 
   const addToCart = (item, qty) => {
     dispatch({ type: "ADDTOCART", payload: { item, quantity: qty } });
+    history.push("/cart");
   };
 
   const { id } = useParams();
