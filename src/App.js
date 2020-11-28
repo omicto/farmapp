@@ -10,6 +10,7 @@ import Footer from "./components/footer/footer.component";
 import Home from "./views/home/home.view";
 import Shop from "./views/shop/shop.view";
 import Laboratories from "./views/labs/labs.view";
+import Cart from './views/cart/cart.view';
 import { getItems } from "./services/item.service";
 import { getResponse } from './mocks/bot-help.mock';
 // TODO Delete
@@ -65,7 +66,9 @@ function App() {
             <Route path="/shop/:id">
               <ItemView />
             </Route>
-            <Route path="/cart"></Route>
+            <Route path="/cart">
+              <Cart/>
+              </Route>
           </Switch>
           <Footer onChange={handleFooterChange} />
         </BrowserRouter>

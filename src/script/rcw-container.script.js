@@ -9,7 +9,6 @@ export const launchOpenContainerListener = () => {
             setTimeout(
                 () => {
                     const close = document.getElementsByClassName('rcw-close-button')[0];
-                    console.log(close);
                     if (close) {
                         close.addEventListener('click', (e) => {
 
