@@ -13,7 +13,7 @@ const ItemView = () => {
   const { dispatch } = useContext(AppContext);
 
   const addToCart = (item, qty) => {
-    dispatch({ type: "ADDTOCART", payload: { item, quantity: qty } });
+    dispatch({ type: "ADD_TO_CART", payload: { item, quantity: qty } });
     history.push("/cart");
   };
 
