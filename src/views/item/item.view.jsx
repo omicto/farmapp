@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ItemCarousel from "../../components/item-carousel/item-carousel.component";
 import QuantitySelect from "../../components/quantity-select/quantity-select.component";
 //  import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { CardActions, CardContent, Card, Typography } from "@material-ui/core";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getItemWithId } from "../../services/item.service";
-
-const addToCart = (item, qty) => {
-  console.log(qty);
-  console.log(item);
-};
+import { AppContext } from "../../components/context/app-context.component";
 
 const asMoney = (money) => money.toFixed(2);
 const ItemView = () => {
-  const { id } = useParams();
-  const item = getItemWithId(id);
-  const [itemQty, setItemQty] = useState(1);
+  const history = useHistory();
+  const { dispatch } = useContext(AppContext);
 
+  const addToCart = (item, qty) => {
+    dispatch({ type: "ADDTOCART", payload: { item, quantity: qty } });
+    history.push("/cart");
+  };
+
+  const { id } = useParams();
+  const [itemQty, setItemQty] = useState(1);
+  const item = getItemWithId(id);
   const { images, name, description, brand, unitPrice } = item;
+
   return (
     <div className="h-100">
       <ItemCarousel items={images}></ItemCarousel>

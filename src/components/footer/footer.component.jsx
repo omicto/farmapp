@@ -11,11 +11,22 @@ const useStyles = makeStyles({
     width: "100%",
     bottom: "0",
     position: "fixed",
+    zIndex: 10000
   },
 });
 
+const useActionStyles = makeStyles( {
+  root:{
+    "&$selected": {
+      color: "#00897C"
+    }
+  },
+  selected: {}
+})
+
 const Footer = ({onChange}) => {
   const classes = useStyles();
+  const actionClasses = useActionStyles();
   const location = useLocation();
   const [path, setPath] = useState(location.pathname);
   const history = useHistory();
@@ -32,10 +43,10 @@ const Footer = ({onChange}) => {
       onChange={handleNavigationChange}
       className={classes.root}      
     >
-      <BottomNavigationAction icon={<Home />} value="/" />
-      <BottomNavigationAction icon={<FontAwesomeIcon icon={faFlask} />} value="/labs"/>
-      <BottomNavigationAction icon={<Storefront />} value="/shop" />
-      <BottomNavigationAction icon={<ShoppingCart />} value="/cart" />
+      <BottomNavigationAction classes={{...actionClasses}} icon={<Home />} value="/" />
+      <BottomNavigationAction classes={{...actionClasses}} icon={<FontAwesomeIcon icon={faFlask} />} value="/labs"/>
+      <BottomNavigationAction classes={{...actionClasses}} icon={<Storefront />} value="/shop" />
+      <BottomNavigationAction classes={{...actionClasses}} icon={<ShoppingCart />} value="/cart" />
     </BottomNavigation>
   );
 };
