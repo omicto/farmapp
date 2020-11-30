@@ -46,15 +46,15 @@ const Cart = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center" colSpan={3}>
-                  Details
+                  Detalles
                 </TableCell>
-                <TableCell align="right">Price</TableCell>
+                <TableCell align="right">Precio</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Desc</TableCell>
-                <TableCell align="right">Qty.</TableCell>
-                <TableCell align="right">Unit</TableCell>
-                <TableCell align="right">Sum</TableCell>
+                <TableCell align="right">Cant.</TableCell>
+                <TableCell align="right">Precio</TableCell>
+                <TableCell align="right">Subtotal</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
