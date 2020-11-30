@@ -8,7 +8,7 @@ body {
     overflow-y: hidden;
     scroll-behavior: smooth;
     transition: all ease-in-out 0.2s;
-    background: #E5E5E5;
+    background-color: #E5E5E5;
 }
 
 html, body{
@@ -44,6 +44,7 @@ html, body{
     .cart-header .rcw-title {
         padding: 10px 0 15px;;
         color: #fff;
+        margin-bottom: 0;
     }
 
     .rcw-launcher {
@@ -106,6 +107,11 @@ html, body{
 
         border-radius: 15px;
     }
+
+    .cart-container{
+        position: fixed;
+        z-index: -1;
+    }
 }
 
 .rcw-send {
@@ -119,11 +125,17 @@ html, body{
     .rcw-conversation-container {
         height: calc(92%);
     }
+    .cart-container {
+        height: calc(92%);
+    }
 }
 
 @media screen and (max-height: 812px) {
 
     .rcw-conversation-container {
+        height: calc(93%);
+    }
+    .cart-container {
         height: calc(93%);
     }
 }
@@ -134,11 +146,17 @@ html, body{
     .rcw-conversation-container {
         height: calc(92%);
     }
+    .cart-container {
+        height: calc(92%);
+    }
 }
 
 @media screen and (max-height: 600px) {
 
     .rcw-conversation-container {
+        height: calc(87%);
+    }
+    .cart-container {
         height: calc(87%);
     }
 }
@@ -148,11 +166,17 @@ html, body{
     .rcw-conversation-container {
         height: calc(90%);
     }
+    .cart-container {
+        height: calc(90%);
+    }
 }
 
 @media screen and (max-height: 600px) {
 
     .rcw-conversation-container {
+        height: calc(87%);
+    }
+    .cart-container {
         height: calc(87%);
     }
 }

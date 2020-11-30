@@ -18,7 +18,8 @@ import ItemView from "./views/item/item.view";
 import "fontsource-roboto";
 import {launchOpenContainerListener, closeLauncher} from './script/rcw-container.script';
 import "react-chat-widget/lib/styles.css";
-
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import "./styles/style.scss";
 
 import { AppProvider } from "./components/context/app-context.component";
