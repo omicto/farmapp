@@ -11,10 +11,7 @@ export const launchOpenContainerListener = () => {
                     const close = document.getElementsByClassName('rcw-close-button')[0];
                     if (close) {
                         close.addEventListener('click', (e) => {
-
-                            console.log(container.classList);
                             container.classList.remove('opened')
-
                         });
                     }
                 }, 200

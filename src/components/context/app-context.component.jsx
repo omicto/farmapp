@@ -15,10 +15,10 @@ const appReducer = (state, action) => {
       return { ...state, cart: [...state.cart, action.payload] };
     }
     case "REMOVE_FROM_CART": {
-      return {...state, cart: state.cart.filter(i => i.id !== action.payload.item.id)}
+      return {...state, cart: state.cart.filter(i => i.id !== action.payload.item.id)};
     }
-    case "EMPTY_CART" : {
-      return {...state, cart: []}
+    case "CLEARCART": {
+      return {...state, cart: [] };
     }
     default:
       return state;
