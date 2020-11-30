@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { AppContext } from "../../components/context/app-context.component";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,36 +11,38 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
-}
+const ccyFormat = (num) => `${num.toFixed(2)}`
 
-function priceRow(qty, unit) {
-  return qty * unit;
-}
+const priceRow = (qty, unit) => qty * unit
 
-function createRow(desc, qty, unit) {
+const createRow = (desc, qty, unit) => {
   const price = priceRow(qty, unit);
   return { desc, qty, unit, price };
 }
 
-function subtotal(items) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
+const subtotal = (items) => items.map(({ price }) => price).reduce((sum, i) => sum + i, 0)
 
 const generateRows = (cart) => cart ? cart.map(({ item, quantity }) => createRow(`${item.brand} - ${item.name}`, quantity, item.unitPrice)) : [];
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#00897C"
+    },
+  },
+});
+
 const Cart = () => {
   const { state: { cart } } = useContext(AppContext);
+  const history = useHistory();
   return (
     <>
-      <div className="cart-header">
+      <div className="header">
         <h4 className="rcw-title">Carrito de compra</h4>
       </div>
       <Paper className="cart-container">
-        <div className="spacer-sm" />
         <TableContainer>
-          <Table aria-label="spanning table">
+          <Table aria-label="spanning table" size="medium">
             <TableHead>
               <TableRow>
                 <TableCell align="center" colSpan={3}>
@@ -69,6 +74,12 @@ const Cart = () => {
             </TableBody>
           </Table>
         </TableContainer>
+        <div className="spacer-mini" />
+        <ThemeProvider theme={theme}>
+          <Button variant="contained" color="primary" onClick={() => history.push('/checkout')}>
+            Comprar
+          </Button>
+        </ThemeProvider>
       </Paper>
     </>
   )
