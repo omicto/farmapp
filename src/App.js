@@ -5,20 +5,21 @@ import {
   toggleWidget,
 } from "react-chat-widget";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./App.css";
 import Footer from "./components/footer/footer.component";
 import Home from "./views/home/home.view";
 import Shop from "./views/shop/shop.view";
 import Laboratories from "./views/labs/labs.view";
 import Cart from './views/cart/cart.view';
+import ItemView from "./views/item/item.view";
+import Checkout from './views/checkout/checkout.view';
 import { getItems } from "./services/item.service";
 import { getResponse } from './mocks/bot-help.mock';
-// TODO Delete
-import ItemView from "./views/item/item.view";
+import { launchOpenContainerListener, closeLauncher } from './script/rcw-container.script';
+import "./App.css";
 import "fontsource-roboto";
-import {launchOpenContainerListener, closeLauncher} from './script/rcw-container.script';
 import "react-chat-widget/lib/styles.css";
-
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import "./styles/style.scss";
 
 import { AppProvider } from "./components/context/app-context.component";
@@ -67,8 +68,11 @@ function App() {
               <ItemView />
             </Route>
             <Route path="/cart">
-              <Cart/>
-              </Route>
+              <Cart />
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
+            </Route>
           </Switch>
           <Footer onChange={handleFooterChange} />
         </BrowserRouter>

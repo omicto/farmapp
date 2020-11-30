@@ -14,7 +14,9 @@ const labs = [
 const Laboratories = () => {
   return (
     <div>
-      <h2>Laboratorios</h2>
+      <div className="header">
+        <h4 className="rcw-title">Laboratorios</h4>
+      </div>
       <p>Encuentra información de laboratorios que realizan la prueba PCR</p>
       {labs.map((lab) => (
         <LabDetails lab={lab} key={lab.phone}></LabDetails>

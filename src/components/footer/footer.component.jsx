@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { faFlask } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,6 +36,10 @@ const Footer = ({onChange}) => {
     onChange();
     setPath(newPath);
   };
+
+  useEffect(() => {
+    setPath(location.pathname);
+  }, [location.pathname])
 
   return (
     <BottomNavigation
