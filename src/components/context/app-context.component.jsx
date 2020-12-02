@@ -11,8 +11,14 @@ const finalInitialState = { ...initialState, ...persistedState };
 
 const appReducer = (state, action) => {
   switch (action.type) {
-    case "ADDTOCART": {
+    case "ADD_TO_CART": {
       return { ...state, cart: [...state.cart, action.payload] };
+    }
+    case "REMOVE_FROM_CART": {
+      return {...state, cart: state.cart.filter(i => i.id !== action.payload.item.id)};
+    }
+    case "CLEARCART": {
+      return {...state, cart: [] };
     }
     default:
       return state;
@@ -26,7 +32,6 @@ export const AppProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem("farmapp", JSON.stringify(state));
-    console.log(state);
   }, [state]);
 
   return (
