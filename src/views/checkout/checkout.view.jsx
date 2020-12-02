@@ -55,10 +55,10 @@ const Checkout = () => {
             color="primary"
             onClick={() => dispatch({ type: "CLEARCART" })}
           >
-            Pagar $
+            Pagar $ 
             {cart
               .map(({ item, quantity }) => item.unitPrice * quantity)
-              .reduce((a, b) => a + b)}
+              .reduce((a, b) => a + b, 0.0)}
           </Button>
         </ThemeProvider>
       </Paper>

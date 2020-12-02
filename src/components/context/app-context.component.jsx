@@ -32,7 +32,6 @@ export const AppProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem("farmapp", JSON.stringify(state));
-    console.log(state);
   }, [state]);
 
   return (

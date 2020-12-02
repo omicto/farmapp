@@ -1,8 +1,26 @@
 .shelf-container {
-    min-height: 150px;
+
+    height: 18vh;
     margin: 0.5rem 0;
     background-repeat: no-repeat;
     background-image: url(./shelf.svg);
     background-position: bottom;
     padding: 0 3.7rem!important;
+}
+
+@media screen and (max-height: 780px){
+    .shelf-container{
+        height: 20vh;
+    }
+}
+
+@media screen and (max-height: 680px){
+    .shelf-container{
+        height: 22.5vh;
+    }
+}
+@media screen and (max-height: 600px){
+    .shelf-container{
+        height: 26vh;
+    }
 }

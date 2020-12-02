@@ -6,6 +6,16 @@ import { CardActions, CardContent, Card, Typography } from "@material-ui/core";
 import { useHistory, useParams } from "react-router-dom";
 import { getItemWithId } from "../../services/item.service";
 import { AppContext } from "../../components/context/app-context.component";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#00897C",
+    },
+  },
+});
 
 const asMoney = (money) => money.toFixed(2);
 const ItemView = () => {
@@ -45,13 +55,11 @@ const ItemView = () => {
               </div>
             </div>
             <div className="row">
-              <button
-                type="button"
-                className="btn btn-success w-100"
-                onClick={() => addToCart(item, itemQty)}
-              >
-                Añadir al carrito
-              </button>
+              <ThemeProvider theme={theme}>
+                <Button className="w-100" variant="contained" color="primary" onClick={() => addToCart(item, itemQty)}>
+                  Añadir al carrito
+                </Button>
+              </ThemeProvider>
             </div>
           </div>
         </CardActions>

@@ -5,39 +5,37 @@ const greetings = [
     'Saludos!, Seré tu asistente mientras estes por aqui, ¿En que te puedo ayudar?'
 ];
 
-const responses = {
-    'Me duele un poco la garganta, en que me recomiendas tomar': {
-        response: '😟 lamento escuchar eso, puedo recomentadte un jarabe para la tos y que acudas a ru medico si no hay mejora!',
+const responses = [
+    {
+        message: "Te puedo recomendar un ibuprofeno",
         link: {
-            title: 'Jarabe para la tos',
-            link: 'https://google.com',
+            title: "Ibuprofeno",
+            link: "http://ec2-3-90-30-33.compute-1.amazonaws.com/shop/2",
+            target: '_blank'
+        }
+    },
+    {
+        message: "Un ibuprofeno te vendrá bien, es un medicamento que no requiere receta y puedes conseguir de diferentes laboratorios si no quieres gastar mucho!",
+        link: {
+            title: "Ibuprofeno",
+            link: "http://ec2-3-90-30-33.compute-1.amazonaws.com/shop/2",
             target: '_blank'
         }
     }
-}
+]
 
 const getRndInteger = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const getGreeting = () => addResponseMessage(greetings[getRndInteger(0,greetings.length-1)]);
+export const greet = () => addResponseMessage(greetings[getRndInteger(0, greetings.length - 1)]);
 
-export const getResponse = ({ message, isGreeting }) => {
-    if (isGreeting) getGreeting();
-    else if (!Object.keys(responses).includes(message)){
+export const getResponse = () => {
+    const { message, link } = responses[getRndInteger(0, greetings.length - 1)];
+    toggleMsgLoader();
+    setTimeout(() => {
         toggleMsgLoader();
-        setTimeout(() => {
-            toggleMsgLoader();
-            addResponseMessage('No tengo respuesta para eso 😥');
-        }, getRndInteger(300, 700));
-    }
-    else {
-        const { response, link } = responses[message];
-        toggleMsgLoader();
-        setTimeout(() => {
-            toggleMsgLoader();
-            addResponseMessage(response)
-        }, getRndInteger(300, 700));
+        addResponseMessage(message);
         if (link) {
             toggleMsgLoader();
             setTimeout(() => {
@@ -45,5 +43,6 @@ export const getResponse = ({ message, isGreeting }) => {
                 addLinkSnippet(link)
             }, getRndInteger(300, 700))
         }
-    }
-}
+    }, getRndInteger(300, 700));
+
+};

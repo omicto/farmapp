@@ -3,8 +3,10 @@ import Shelf from "../../components/shelf/shelf.component";
 
 const Shop = ({ items }) => {
   return (
-    <div>
-      <h2 className="mt-3">Farmacias FarmApp</h2>
+    <div >
+      <div className="header">
+        <h4 className="rcw-title">Farmacias FarmApp</h4>
+      </div>
       <Shelf items={items}></Shelf>
     </div>
   );
