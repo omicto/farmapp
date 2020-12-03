@@ -11,14 +11,14 @@ const responses = [
     {
         message: "Te puedo recomendar un Ibuprofeno",
         link: {
-            desc: "Aquí puedes comprar tu medicina:",
+            desc: "Aquí puedes comprar tu medicina",
             url: "/shop/0"
         }
     },
     {
         message: "Un ibuprofeno te vendrá bien, es un medicamento que no requiere receta y puedes conseguir de diferentes laboratorios si no quieres gastar mucho!",
         link: {
-            desc: "Aquí puedes comprar tu medicina:",
+            desc: "Aquí puedes comprar tu medicina",
             url: "/shop/0"
         }
     }
