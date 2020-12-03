@@ -20,11 +20,6 @@ const Shelf = ({ items }) => {
           <ShelfItem key={item.id} item={item} />
         ))}
       </ShelfContainer>
-      <ShelfContainer>
-        {items.map((item) => (
-          <ShelfItem key={item.id} item={item} />
-        ))}
-      </ShelfContainer>
     </>
   );
 };
