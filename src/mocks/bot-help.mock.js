@@ -3,22 +3,22 @@ import {closeLauncher} from '../script/rcw-container.script';
 import LinkMessage from '../components/link-message/link-message.component';
 
 const greetings = [
-    'Hola!, Soy tu asistente mientras estes por aqui, ¿En que te puedo ayudar?',
-    'Saludos!, Seré tu asistente mientras estes por aqui, ¿En que te puedo ayudar?'
+    '¡Hola! Soy tu asistente mientras estés por aquí. ¿En qué te puedo ayudar?',
+    '¡Saludos! Seré tu asistente mientras estés por aqui. ¿En qué te puedo ayudar?'
 ];
 
 const responses = [
     {
-        message: "Te puedo recomendar un ibuprofeno",
+        message: "Te puedo recomendar un Ibuprofeno",
         link: {
-            desc: "Aqui puedes comprar tu medicina",
+            desc: "Aquí puedes comprar tu medicina:",
             url: "/shop/0"
         }
     },
     {
         message: "Un ibuprofeno te vendrá bien, es un medicamento que no requiere receta y puedes conseguir de diferentes laboratorios si no quieres gastar mucho!",
         link: {
-            desc: "Aqui puedes comprar tu medicina",
+            desc: "Aquí puedes comprar tu medicina:",
             url: "/shop/0"
         }
     }
@@ -41,8 +41,6 @@ export const getResponse = () => {
             toggleMsgLoader();
             setTimeout(() => {
                 toggleMsgLoader();
-                //addLinkSnippet(link)
-                //addResponseMessage(`[${desc}](${url})`);
                 renderCustomComponent(LinkMessage, {to: url, text: desc, onClick: () => {
                     toggleWidget();
                     closeLauncher();
